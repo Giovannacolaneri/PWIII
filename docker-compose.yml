@@ -9,16 +9,15 @@ services:
     image: phpmyadmin
     restart: always
     ports:
-      - "80:80"
+      - "8080:80"  # MUDAMOS AQUI! Acesso via IP-DA-VM:8080
     environment:
       - PMA_ARBITRARY=1
 
   web:
     image: nginx
     ports:
-       - "80:80"
+       - "80:80"   # O seu site fica na porta padrão (IP-DA-VM)
     volumes:
-
-     - ./meufrontend:/usr/share/nginx/html
+       - ./meufrontend:/usr/share/nginx/html
 
 
